@@ -1,11 +1,6 @@
 package fr.pizzeria.console.ihm;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import fr.pizzeria.console.Pizza;
-
-//Cette classe permet de générer une option permettant de lister des pizzas
+//Cette classe permet de gï¿½nï¿½rer une option permettant de lister des pizzas
 public class ListerPizzaOptionMenu extends OptionMenu {
 	
 	//Constructeur

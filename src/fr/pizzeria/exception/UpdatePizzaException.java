@@ -1,7 +1,5 @@
 package fr.pizzeria.exception;
 
-import fr.pizzeria.console.Pizza;
-
 public class UpdatePizzaException extends StockageException{
 
 	public UpdatePizzaException(String message) {

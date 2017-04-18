@@ -1,11 +1,14 @@
 package fr.pizzeria.console.ihm;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import fr.pizzeria.console.Pizza;
+import fr.pizzeria.dao.DaoFichierFactory;
 import fr.pizzeria.exception.CreditException;
 import fr.pizzeria.exception.DebitException;
 import fr.pizzeria.exception.DeletePizzaException;
@@ -15,17 +18,12 @@ import fr.pizzeria.exception.UpdatePizzaException;
 import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Client;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-
 public class PizzaDaoImplFichier implements IPizzaDao {
 
 	@Override
 	public List<Pizza> findAllPizzas() {
 		try{ 
-			return Files.list(Paths.get("data"))
+			return Files.list(Paths.get(DaoFichierFactory.getDIRName()))
 			.map(path->{
 				String code=path.toFile().getName().replaceAll(".txt", "");
 				try{
@@ -34,7 +32,6 @@ public class PizzaDaoImplFichier implements IPizzaDao {
 					String premiereLigne=premiereLigneDuFichier.orElseThrow(()->new StockageException("fichier vide"));
 					
 					String[] valueTab=premiereLigne.split(";");
-					System.out.println();
 					
 					return new Pizza(code,valueTab[0],Double.valueOf(valueTab[1]),CategoriePizza.valueOf(valueTab[2]));
 					

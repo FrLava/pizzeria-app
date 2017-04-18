@@ -1,8 +1,5 @@
 package fr.pizzeria.model;
 
-import fr.pizzeria.exception.CreditException;
-import fr.pizzeria.exception.DebitException;
-
 public class Client {
 	
 	//######################## Attribut ########################
@@ -41,7 +38,7 @@ public class Client {
 	
 	public String toString()
 	{
-		String info=this.id+" -> "+this.nom+" "+this.prenom+" ("+this.solde+"€) ";
+		String info=this.id+" -> "+this.nom+" "+this.prenom+" ("+this.solde+"ï¿½) ";
 		return info;
 	}
 

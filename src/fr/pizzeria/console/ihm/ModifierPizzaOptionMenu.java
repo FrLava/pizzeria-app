@@ -3,11 +3,10 @@ package fr.pizzeria.console.ihm;
 import java.util.Scanner;
 
 import fr.pizzeria.console.Pizza;
-import fr.pizzeria.exception.SavePizzaException;
 import fr.pizzeria.exception.UpdatePizzaException;
 import fr.pizzeria.model.CategoriePizza;
 
-//Cette classe permet de génerer une option permettant de modifer une pizza
+//Cette classe permet de gï¿½nerer une option permettant de modifer une pizza
 public class ModifierPizzaOptionMenu extends OptionMenu {
 
 	//Attributs
@@ -17,7 +16,7 @@ public class ModifierPizzaOptionMenu extends OptionMenu {
 	//Constructeur
 	public ModifierPizzaOptionMenu(IPizzaDao pizzaDao)
 	{
-		this.nomOptionMenu="3. Mettre à jour une pizza";
+		this.nomOptionMenu="3. Mettre Ã  jour une pizza";
 		this.pizzaDao=pizzaDao;
 	}
 	
@@ -30,7 +29,7 @@ public class ModifierPizzaOptionMenu extends OptionMenu {
 
 		  
 		 System.out.println("Modifier une pizza");
-	     System.out.println("Veuillez saisir le code de la pizza à modifier");
+	     System.out.println("Veuillez saisir le code de la pizza ï¿½ modifier");
 	     codePizzaAModif=scanModif.nextLine();
 	     System.out.println("Veuillez saisir le code");
 		 String codePizza=scanModif.nextLine();
@@ -48,7 +47,7 @@ public class ModifierPizzaOptionMenu extends OptionMenu {
 		 catch (UpdatePizzaException e) 
 		 {
 			// TODO Auto-generated catch block
-			System.out.println("Mauvaise entrée");
+			System.out.println("Mauvaise entrï¿½e");
 		} 
 		 
 		

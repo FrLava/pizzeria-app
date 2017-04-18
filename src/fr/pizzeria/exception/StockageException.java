@@ -2,8 +2,6 @@ package fr.pizzeria.exception;
 
 import java.io.IOException;
 
-import fr.pizzeria.console.Pizza;
-
 public class StockageException extends RuntimeException{
 
 	public StockageException(String message) {

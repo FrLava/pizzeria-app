@@ -13,7 +13,7 @@ import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Client;
 
 //Cette classe implemente l'interface IPizzaDao et permet de manipuler des listes de pizzas
-public class PizzaDaoImpl implements IPizzaDao {
+public class PizzaDaoImplTableau implements IPizzaDao {
 
 	//Attributs
 	private List<Pizza> ListPizza=new ArrayList();	
@@ -21,11 +21,11 @@ public class PizzaDaoImpl implements IPizzaDao {
 	private int indexAjout;
 
 	//Constructeur
-	public PizzaDaoImpl()
+	public PizzaDaoImplTableau()
 	{
 		
 		//ListPizza=new Pizza[50];
-		ListPizza.add(0,new Pizza("PEP","pépéroni",12.50, CategoriePizza.VIANDE));
+		ListPizza.add(0,new Pizza("PEP","PÃ©pÃ©roni",12.50, CategoriePizza.VIANDE));
 		ListPizza.add(1,new Pizza("MAR","Margherita",14.00, CategoriePizza.VIANDE));
 		ListPizza.add(2,new Pizza("REI","La Reine",11.50, CategoriePizza.POISSON));
 		ListPizza.add(3,new Pizza("FRO","La 4 Fromages",12.00, CategoriePizza.SANS_VIANDE));

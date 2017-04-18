@@ -4,8 +4,10 @@ import java.util.Scanner;
 
 import fr.pizzeria.console.ihm.IPizzaDao;
 import fr.pizzeria.console.ihm.Menu;
-import fr.pizzeria.console.ihm.PizzaDaoImpl;
 import fr.pizzeria.console.ihm.PizzaDaoImplFichier;
+import fr.pizzeria.dao.DaoFactory;
+import fr.pizzeria.dao.DaoFichierFactory;
+import fr.pizzeria.dao.DaoMemoryFactory;
 
 public class PizzeriaAdminConsoleApp {
 
@@ -13,9 +15,11 @@ public class PizzeriaAdminConsoleApp {
 	{
 		// TODO Auto-generated method stub
 		
+		DaoFactory factory=new DaoMemoryFactory();
+		
 		//IPizzaDao pizzaDaoMenu=new PizzaDaoImpl();
-		IPizzaDao pizzaDaoMenu=new PizzaDaoImplFichier();
-		Menu menu=new Menu("##############################PIZZAAAAAAAAAAA########################",pizzaDaoMenu);
+		//IPizzaDao pizzaDaoMenu=new PizzaDaoImplFichier();
+		Menu menu=new Menu("##############################PIZZAAAAAAAAAAA########################",factory.getPizzaDao());
 		int resultScan=0;
 		
 		do

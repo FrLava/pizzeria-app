@@ -2,11 +2,9 @@ package fr.pizzeria.model;
 
 import java.util.Scanner;
 
-import fr.pizzeria.console.Pizza;
 import fr.pizzeria.console.ihm.IPizzaDao;
 import fr.pizzeria.console.ihm.OptionMenu;
 import fr.pizzeria.exception.CreditException;
-import fr.pizzeria.exception.UpdatePizzaException;
 
 public class CrediterCompteClientOptionMenu extends OptionMenu {
 
