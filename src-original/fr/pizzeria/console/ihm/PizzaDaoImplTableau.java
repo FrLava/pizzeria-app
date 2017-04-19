@@ -35,7 +35,7 @@ public class PizzaDaoImplTableau implements IPizzaDao {
 		ListPizza.add(7,new Pizza ("IND","L'indienne",14.00,CategoriePizza.POISSON));
 		
 		ListClient.add(0,new Client(0,"LAVAUD","Franc",100));
-		ListClient.add(1, new Client(1,"toto","Abdel",23));
+		ListClient.add(1,new Client(1,"toto","Abdel",23));
 		ListClient.add(2,new Client(2,"tio","osdhvo",56));
 	}
 	
