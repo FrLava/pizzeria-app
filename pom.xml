@@ -21,7 +21,7 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <artifactId>Pizzeria-Console</artifactId>
 
     <version>1.0.0</version>
-
+    <packaging>jar</packaging>  
         <build>
 
             <finalName>PizzaConsole</finalName>
@@ -54,18 +54,75 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
                         </configuration>
                     </plugin>
 
+                     <plugin>
+                    <!-- Build an executable JAR -->
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>3.0.2</version>
+                    <configuration>
+                        <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>lib/</classpathPrefix>
+                            <mainClass>fr.pizzeria.console.PizzeriaAdminConsoleApp</mainClass>
+                        </manifest>
+                        </archive>
+                    </configuration>
+                    </plugin>
+                    
+
+                   
                 </plugins>
 
             </pluginManagement>
 
+            <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-shade-plugin</artifactId>
+                        <version>3.0.0</version>
+                        <executions>
+                        <execution>
+                            <phase>package</phase>
+                            <goals>
+                            <goal>shade</goal>
+                            </goals>
+                           
+                        </execution>
+                        </executions>
+                    </plugin>
+
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <version>2.1.2</version>
+                        <executions>
+                        <execution>
+                            <id>attach-sources</id>
+                            <goals>
+                            <goal>jar-no-fork</goal>
+                            </goals>
+                        </execution>
+                        </executions>
+                </plugin>
+            </plugins>
+
     </build>
 
         <dependencies>
+
         	<dependency>
         		<groupId>junit</groupId>
         		<artifactId>junit</artifactId>
         		<scope>test</scope>
         	</dependency>
+
+            <dependency>
+                <groupId>com.github.lalyos</groupId>
+                <artifactId>jfiglet</artifactId>
+                <version>0.0.3</version>
+            </dependency>
+
         </dependencies>
         <dependencyManagement>
         	<dependencies>

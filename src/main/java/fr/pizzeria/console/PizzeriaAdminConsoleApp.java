@@ -9,6 +9,8 @@ import fr.pizzeria.dao.DaoFactory;
 import fr.pizzeria.dao.DaoFichierFactory;
 import fr.pizzeria.dao.DaoMemoryFactory;
 
+import com.github.lalyos.jfiglet.FigletFont;
+
 public class PizzeriaAdminConsoleApp {
 
 	public static void main(String[] args)
@@ -20,6 +22,10 @@ public class PizzeriaAdminConsoleApp {
 		
 		//IPizzaDao pizzaDaoMenu=new PizzaDaoImpl();
 		//IPizzaDao pizzaDaoMenu=new PizzaDaoImplFichier();
+		
+		String asciiArt = FigletFont.convertOneLine("Pizza Ascii");
+	    System.out.println(asciiArt);
+		
 		Menu menu=new Menu("##############################PIZZAAAAAAAAAAA########################",factory.getPizzaDao());
 		int resultScan=0;
 		
