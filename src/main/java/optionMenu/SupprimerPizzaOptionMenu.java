@@ -1,7 +1,8 @@
-package fr.pizzeria.console.ihm;
+package optionMenu;
 
 import java.util.Scanner;
 
+import fr.pizzeria.console.ihm.IPizzaDao;
 import fr.pizzeria.exception.DeletePizzaException;
 
 //Cette classe permet de génerer une option permettant de supprimer une pizza

@@ -1,4 +1,6 @@
-package fr.pizzeria.console.ihm;
+package optionMenu;
+
+import fr.pizzeria.console.ihm.IPizzaDao;
 
 //Cette classe permet de g�n�rer une option permettant de lister des pizzas
 public class ListerPizzaOptionMenu extends OptionMenu {

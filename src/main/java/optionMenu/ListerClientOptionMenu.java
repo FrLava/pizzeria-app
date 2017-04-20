@@ -1,7 +1,6 @@
-package fr.pizzeria.model;
+package optionMenu;
 
 import fr.pizzeria.console.ihm.IPizzaDao;
-import fr.pizzeria.console.ihm.OptionMenu;
 
 public class ListerClientOptionMenu extends OptionMenu {
 

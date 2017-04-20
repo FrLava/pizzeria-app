@@ -38,7 +38,7 @@ public class Client {
 	
 	public String toString()
 	{
-		String info=this.id+" -> "+this.nom+" "+this.prenom+" ("+this.solde+"�) ";
+		String info=this.nom+" "+this.prenom+" ("+this.solde+"€) ";
 		return info;
 	}
 

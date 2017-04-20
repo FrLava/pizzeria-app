@@ -1,9 +1,8 @@
-package fr.pizzeria.model;
+package optionMenu;
 
 import java.util.Scanner;
 
 import fr.pizzeria.console.ihm.IPizzaDao;
-import fr.pizzeria.console.ihm.OptionMenu;
 import fr.pizzeria.exception.DebitException;
 
 public class DebiterCompteClientOptionMenu extends OptionMenu {

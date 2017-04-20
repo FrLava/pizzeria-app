@@ -27,8 +27,8 @@ public class PizzaDaoImplFichier implements IPizzaDao {
 
 	@Override
 	public List<Pizza> findAllPizzas() { //permet de récuperer une liste de pizza depuis un fichier
-		try (Stream<Path> list = Files.list(Paths.get(DaoFichierFactory.getDIRName()))){ 	//Recupère la liste des fichier present 
-																							// dans le repertoire DIRName de DaoFichierFactory
+		try (Stream<Path> list = Files.list(Paths.get(DaoFichierFactory.getDIRPizza()))){ 	//Recupère la liste des fichier present 
+																							// dans le repertoire data/pizzas
 														
 			return list.map(path->{ //map le path en pizzas 
 			String code=path.toFile().getName().replaceAll(".txt", ""); //Recupère le code de pizza avec le nom du 
@@ -37,8 +37,8 @@ public class PizzaDaoImplFichier implements IPizzaDao {
 			try(Stream<String> lines = Files.lines(path);){ //Cette notation permet de fermer le stream à la fin du bloc try et de liberer la ressource
 				
 				Optional<String> premiereLigneDuFichier=lines.findFirst(); 	//Recupère la première ligne du fichier, 
-																						//on utilise un Optional pour eviter l'exception
-																						//si le fichier est vide
+																			//on utilise un Optional pour eviter l'exception
+																			//si le fichier est vide
 				
 				String premiereLigne=premiereLigneDuFichier.orElseThrow(()->new StockageException("fichier vide"));	//Permet de gèrer l'exception si le fichier est vide
 				
@@ -59,15 +59,43 @@ public class PizzaDaoImplFichier implements IPizzaDao {
 
 	@Override
 	public List<Client> findAllClient() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		try (Stream<Path> list = Files.list(Paths.get(DaoFichierFactory.getDIRClient()))){ 	//Recupère la liste des fichier present 
+																							// dans le repertoire data/clients
+
+			return list.map(path->{ //map le path en client 
+			
+			
+			try(Stream<String> lines = Files.lines(path);){ //Cette notation permet de fermer le stream à la fin du bloc try et de liberer la ressource
+			
+				Optional<String> premiereLigneDuFichier=lines.findFirst(); 	//Recupère la première ligne du fichier, 
+																			//on utilise un Optional pour eviter l'exception
+																			//si le fichier est vide
+			
+				String premiereLigne=premiereLigneDuFichier.orElseThrow(()->new StockageException("fichier vide"));	//Permet de gèrer l'exception si le fichier est vide
+			
+				String[] valueTab=premiereLigne.split(";");	//Recupère les éléments de la ligne avec pour séparateur un ";"
+			
+				return new Client(Integer.valueOf(valueTab[0]),valueTab[1],valueTab[2],Double.valueOf(valueTab[3])); //Retourne le client créer
+			
+			}catch(IOException e){
+				throw new StockageException(e);
+			
+			}
+			}).collect(Collectors.toList()); //Collecte tout les clients
+			
+			}catch(IOException e){
+				throw new StockageException(e);
+			}
+		
+		
 	}
 
 	@Override
 	public boolean saveNewPizza(Pizza pizza) throws SavePizzaException {
 		
 		List<String> ligneAEcrire=Arrays.asList(pizza.getNom()+";"+pizza.getPrix()+";"+pizza.getCategorie());
-		String nomDuFichier=DaoFichierFactory.getDIRName()+"/"+pizza.getCode()+".txt";
+		String nomDuFichier=DaoFichierFactory.getDIRPizza()+"/"+pizza.getCode()+".txt";
 		
 		try {
 			
@@ -85,22 +113,6 @@ public class PizzaDaoImplFichier implements IPizzaDao {
 	@Override
 	public boolean updatePizza(String codePizza, Pizza pizza) throws UpdatePizzaException {
 		
-//		List<String> ligneAEcrire=Arrays.asList(pizza.getNom()+";"+pizza.getPrix()+";"+pizza.getCategorie());
-//		String nomDuFichier=DaoFichierFactory.getDIRName()+"/"+codePizza+".txt";
-//		
-//		try {
-//			
-//			Path file = Paths.get(nomDuFichier);
-//			
-//			Files.write(file, ligneAEcrire, Charset.forName("UTF-8"),StandardOpenOption.WRITE,StandardOpenOption.TRUNCATE_EXISTING);
-//			
-//			
-//		} catch (IOException e) {
-//
-//			throw new StockageException(e);
-//		}
-//		
-		
 		this.deletePizza(codePizza);
 		this.saveNewPizza(pizza);
 		return true;
@@ -109,10 +121,10 @@ public class PizzaDaoImplFichier implements IPizzaDao {
 	@Override
 	public boolean deletePizza(String codePizza) throws DeletePizzaException {
 		try {
-			Files.deleteIfExists(Paths.get(DaoFichierFactory.getDIRName(),codePizza+".txt"));
+			Files.deleteIfExists(Paths.get(DaoFichierFactory.getDIRPizza(),codePizza+".txt"));
 
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+
 			throw new DeletePizzaException(e);
 		}
 		return true;

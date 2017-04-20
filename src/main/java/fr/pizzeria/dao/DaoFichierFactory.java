@@ -5,7 +5,8 @@ import fr.pizzeria.console.ihm.PizzaDaoImplFichier;
 
 public class DaoFichierFactory implements DaoFactory {
 
-	private static final String DATA_DIR="data";
+	private static final String DATA_DIR_PIZZA="data/pizzas";
+	private static final String DAT_DIR_CLIENT="data/clients";
 	
 	private IPizzaDao pizzaDao=new PizzaDaoImplFichier();
 	
@@ -15,8 +16,11 @@ public class DaoFichierFactory implements DaoFactory {
 		return pizzaDao;
 	}
 	
-	public static String getDIRName(){
-		return DATA_DIR;
+	public static String getDIRPizza(){
+		return DATA_DIR_PIZZA;
 	}
 
+	public static String getDIRClient() {
+		return DAT_DIR_CLIENT;
+	}
 }

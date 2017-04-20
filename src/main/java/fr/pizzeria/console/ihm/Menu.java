@@ -3,9 +3,14 @@ package fr.pizzeria.console.ihm;
 import java.util.Map;
 import java.util.TreeMap;
 
-import fr.pizzeria.model.CrediterCompteClientOptionMenu;
-import fr.pizzeria.model.DebiterCompteClientOptionMenu;
-import fr.pizzeria.model.ListerClientOptionMenu;
+import optionMenu.AjouterPizzaOptionMenu;
+import optionMenu.CrediterCompteClientOptionMenu;
+import optionMenu.DebiterCompteClientOptionMenu;
+import optionMenu.ListerClientOptionMenu;
+import optionMenu.ListerPizzaOptionMenu;
+import optionMenu.ModifierPizzaOptionMenu;
+import optionMenu.OptionMenu;
+import optionMenu.SupprimerPizzaOptionMenu;
 
 public class Menu {
 	
