@@ -69,7 +69,7 @@ public class Pizza {
 	
 	public String getCategorie()
 	{
-		return catPizza.toString();
+		return catPizza.name();
 	}
 	
 	/*public int getId()

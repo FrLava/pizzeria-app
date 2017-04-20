@@ -47,7 +47,7 @@ public class ModifierPizzaOptionMenu extends OptionMenu {
 		 catch (UpdatePizzaException e) 
 		 {
 			// TODO Auto-generated catch block
-			System.out.println("Mauvaise entr�e");
+			System.out.println("Mauvaise entrée");
 		} 
 		 
 		
