@@ -6,8 +6,8 @@ import fr.pizzeria.dao.DaoFactory;
 
 public class DaoFichierFactory implements DaoFactory {
 
-	private static final String DATA_DIR_PIZZA="data/pizzas";
-	private static final String DAT_DIR_CLIENT="data/clients";
+	private static final String DATA_DIR_PIZZA="../data/pizzas";
+	private static final String DAT_DIR_CLIENT="../data/clients";
 	
 	private IPizzaDao pizzaDao=new PizzaDaoImplFichier();
 	
