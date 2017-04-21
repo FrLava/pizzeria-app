@@ -1,12 +1,4 @@
 eclipse.preferences.version=1
-encoding//data/CEN.txt=UTF-8
-encoding//data/FRO.txt=UTF-8
-encoding//data/IND.txt=UTF-8
-encoding//data/MAR.txt=UTF-8
-encoding//data/ORI.txt=UTF-8
-encoding//data/PEP.txt=UTF-8
-encoding//data/REI.txt=UTF-8
-encoding//data/SAV.txt=UTF-8
 encoding//src/main/java=UTF-8
 encoding//src/main/resources=UTF-8
 encoding//src/test/java=UTF-8

@@ -18,10 +18,10 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <groupId>dta</groupId>
 
-    <artifactId>Pizzeria-Console</artifactId>
+    <artifactId>pizzeria-app</artifactId>
 
     <version>1.0.0</version>
-    <packaging>jar</packaging>  
+    <packaging>pom</packaging>  
         <build>
 
             <finalName>PizzaConsole</finalName>
@@ -133,4 +133,11 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
         		</dependency>
         	</dependencies>
         </dependencyManagement>
+        <modules>
+        	<module>pizzeria-dao-api</module>
+        	<module>pizzeria-console</module>
+        	<module>pizzeria-dao-memoire</module>
+        	<module>pizzeria-dao-fichier</module>
+        	<module>pizzeria-domain</module>
+        </modules>
 </project>

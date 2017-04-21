@@ -1,0 +1,6 @@
+###############Pizzeria Administration###############
+1. Lister les Pizzas
+2. Ajouter une Pizza
+3. Mettre à jour une Pizza
+4. Supprimer une Pizza
+99. Sortir

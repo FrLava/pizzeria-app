@@ -12,7 +12,6 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import fr.pizzeria.console.Pizza;
 import fr.pizzeria.dao.DaoFichierFactory;
 import fr.pizzeria.exception.CreditException;
 import fr.pizzeria.exception.DebitException;
@@ -22,6 +21,7 @@ import fr.pizzeria.exception.StockageException;
 import fr.pizzeria.exception.UpdatePizzaException;
 import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Client;
+import fr.pizzeria.model.Pizza;
 
 public class PizzaDaoImplFichier implements IPizzaDao {
 

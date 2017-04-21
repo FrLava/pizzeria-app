@@ -2,13 +2,13 @@ package fr.pizzeria.console.ihm;
 
 import java.util.List;
 
-import fr.pizzeria.console.Pizza;
 import fr.pizzeria.exception.CreditException;
 import fr.pizzeria.exception.DebitException;
 import fr.pizzeria.exception.DeletePizzaException;
 import fr.pizzeria.exception.SavePizzaException;
 import fr.pizzeria.exception.UpdatePizzaException;
 import fr.pizzeria.model.Client;
+import fr.pizzeria.model.Pizza;
 
 public interface IPizzaDao {
 	

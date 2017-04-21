@@ -5,7 +5,7 @@ import java.util.List;
 import org.junit.Assert;
 import org.junit.Test;
 
-import fr.pizzeria.console.Pizza;
+import fr.pizzeria.model.Pizza;
 
 public class PizzaDaoImplFichierTest{
 	
