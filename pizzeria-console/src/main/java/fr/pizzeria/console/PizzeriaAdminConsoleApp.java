@@ -1,22 +1,31 @@
 package fr.pizzeria.console;
 
+import java.util.ResourceBundle;
 import java.util.Scanner;
 
 import fr.pizzeria.dao.IPizzaDao;
 import fr.pizzeria.dao.DaoFactory;
-import fr.pizzeria.dao.fichier.DaoFichierFactory;
-import fr.pizzeria.dao.memoire.DaoMemoryFactory;
+//import fr.pizzeria.dao.fichier.DaoFichierFactory;
+//import fr.pizzeria.dao.memoire.DaoMemoryFactory;
 
 import com.github.lalyos.jfiglet.FigletFont;
 
 public class PizzeriaAdminConsoleApp {
 
-	public static void main(String[] args)
+	public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException
 	{
 		// TODO Auto-generated method stub
 		
-		DaoFactory factory=new DaoFichierFactory();
-
+		//DaoFactory factory=new DaoFichierFactory();
+		
+		ResourceBundle bundle=ResourceBundle.getBundle("application");
+		String valueDao=bundle.getString("pizzeriaDao.val");
+		
+		System.out.println(valueDao);
+		
+		Class<?> implDao=Class.forName(valueDao);
+		
+		DaoFactory factory=(DaoFactory) implDao.newInstance();
 		
 		//IPizzaDao pizzaDaoMenu=new PizzaDaoImpl();
 		//IPizzaDao pizzaDaoMenu=new PizzaDaoImplFichier();

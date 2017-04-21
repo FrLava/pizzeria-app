@@ -10,29 +10,18 @@
 
   <artifactId>pizzeria-dao-fichier</artifactId>
 
-  <name>pizzeria-dao-fichier</name>
-  <url>http://maven.apache.org</url>
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
+  <name>Pizzeria - Dao - Fichier</name>
+
   <dependencies>
+   
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-		<version>4.12</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-    	<groupId>dta</groupId>
+    	<groupId>${project.groupId}</groupId>
     	<artifactId>pizzeria-dao-api</artifactId>
-    	<version>1.0.0</version>
-
     </dependency>
+    
     <dependency>
-    	<groupId>dta</groupId>
+    	<groupId>${project.groupId}</groupId>
     	<artifactId>pizzeria-domain</artifactId>
-    	<version>1.0.0</version>
-
     </dependency>
   </dependencies>
 </project>

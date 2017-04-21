@@ -1,50 +1,95 @@
 <?xml version="1.0"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>dta</groupId>
-    <artifactId>pizzeria-app</artifactId>
-    <version>1.0.0</version>
-  </parent>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>dta</groupId>
+		<artifactId>pizzeria-app</artifactId>
+		<version>1.0.0</version>
+	</parent>
 
-  <artifactId>pizzeria-console</artifactId>
+	<artifactId>pizzeria-console</artifactId>
 
-  <name>pizzeria-console</name>
-  <url>http://maven.apache.org</url>
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
-  <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-	  <version>4.12</version>	
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-    	<groupId>dta</groupId>
-    	<artifactId>pizzeria-domain</artifactId>
-    	<version>1.0.0</version>
+	<name>Pizzeria - Console</name>
 
-    </dependency>
-    <dependency>
-    	<groupId>dta</groupId>
-    	<artifactId>pizzeria-dao-api</artifactId>
-    	<version>1.0.0</version>
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<artifactId>maven-jar-plugin</artifactId>
+					<configuration>
+						<archive>
+							<manifest>
+								<mainClass>fr.pizzeria.console.PizzeriaAdminConsoleApp</mainClass>
+							</manifest>
+						</archive>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>3.0.0</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 
-    </dependency>
-    <dependency>
-    	<groupId>dta</groupId>
-    	<artifactId>pizzeria-dao-memoire</artifactId>
-    	<version>1.0.0</version>
+	<dependencies>
+		<dependency>
+			<groupId>dta</groupId>
+			<artifactId>pizzeria-domain</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>dta</groupId>
+			<artifactId>pizzeria-dao-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.github.lalyos</groupId>
+			<artifactId>jfiglet</artifactId>
+		</dependency>
+	</dependencies>
 
-    </dependency>
-    <dependency>
-    	<groupId>dta</groupId>
-    	<artifactId>pizzeria-dao-fichier</artifactId>
-    	<version>1.0.0</version>
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<dao>fr.pizzeria.dao.memoire.DaoMemoryFactory</dao>
+			</properties>
+			<dependencies>
+				<dependency>
+					<groupId>dta</groupId>
+					<artifactId>pizzeria-dao-memoire</artifactId>
+					<scope>runtime</scope>
+				</dependency>
+			</dependencies>
+		</profile>
+		<profile>
+			<id>prod</id>
+			<properties>
+				<dao>fr.pizzeria.dao.fichier.DaoFichierFactory</dao>
+			</properties>
+			<dependencies>
+				<dependency>
+					<groupId>dta</groupId>
+					<artifactId>pizzeria-dao-fichier</artifactId>
+					<scope>runtime</scope>
+				</dependency>
+			</dependencies>
+		</profile>
+	</profiles>
 
-    </dependency>
-  </dependencies>
 </project>

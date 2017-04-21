@@ -47,6 +47,14 @@ public class Pizza {
 		
 	}
 	
+	public String toString(){
+		return this.codePizza
+				+" -> "
+				+this.nomPizza
+				+" ("+this.getPrix()+") "
+				+this.getCategorie();
+	}
+	
 	
 	//Accesseurs
 	public String getCode()

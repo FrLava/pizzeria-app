@@ -20,7 +20,7 @@ public class ListerPizzaOptionMenu extends OptionMenu {
 		
 		for(i=0;i<this.pizzaDao.findAllPizzas().size();i++)
 		{
-			this.pizzaDao.findAllPizzas().get(i).displayPizzas();
+			System.out.println(this.pizzaDao.findAllPizzas().get(i).toString());
 		}
 		
 		return true;
