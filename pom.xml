@@ -9,6 +9,7 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <properties>
         <junit.version> 4.2 </junit.version>
         <java.version> 1.8 </java.version>
+        <project.version>1.0.0</project.version>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
@@ -20,8 +21,10 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <artifactId>pizzeria-app</artifactId>
 
-    <version>1.0.0</version>
+    <version>${project.version}</version>
+    
     <packaging>pom</packaging>  
+    
         <build>
 
             <finalName>PizzaConsole</finalName>
@@ -126,11 +129,43 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
         </dependencies>
         <dependencyManagement>
         	<dependencies>
+        	
         		<dependency>
         			<groupId>junit</groupId>
         			<artifactId>junit</artifactId>
         			<version>4.12</version>
         		</dependency>
+        		
+        		<dependency>
+    				<groupId>dta</groupId>
+    				<artifactId>pizzeria-console</artifactId>
+    				<version>1.0.0</version>
+   				</dependency>
+   				
+   				<dependency>
+    				<groupId>dta</groupId>
+    				<artifactId>pizzeria-dao-api</artifactId>
+    				<version>1.0.0</version>
+   				</dependency>
+        		
+        		<dependency>
+    				<groupId>dta</groupId>
+    				<artifactId>pizzeria-dao-memoire</artifactId>
+    				<version>1.0.0</version>
+   				</dependency>
+   				
+   				<dependency>
+    				<groupId>dta</groupId>
+    				<artifactId>pizzeria-dao-fichier</artifactId>
+    				<version>1.0.0</version>
+   				</dependency>
+   				
+   				<dependency>
+    				<groupId>dta</groupId>
+    				<artifactId>pizzeria-domain</artifactId>
+    				<version>1.0.0</version>
+   				</dependency>
+        		
         	</dependencies>
         </dependencyManagement>
         <modules>

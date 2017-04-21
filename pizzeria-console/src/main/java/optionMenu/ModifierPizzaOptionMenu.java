@@ -2,8 +2,8 @@ package optionMenu;
 
 import java.util.Scanner;
 
-import fr.pizzeria.console.ihm.IPizzaDao;
-import fr.pizzeria.exception.UpdatePizzaException;
+import fr.pizzeria.dao.IPizzaDao;
+import fr.pizzeria.dao.exception.UpdatePizzaException;
 import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
 

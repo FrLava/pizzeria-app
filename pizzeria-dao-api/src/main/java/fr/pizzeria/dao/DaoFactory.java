@@ -1,6 +1,6 @@
 package fr.pizzeria.dao;
 
-import fr.pizzeria.console.ihm.IPizzaDao;
+import fr.pizzeria.dao.IPizzaDao;
 
 public interface DaoFactory {
 	

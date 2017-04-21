@@ -1,6 +1,6 @@
 package optionMenu;
 
-import fr.pizzeria.console.ihm.IPizzaDao;
+import fr.pizzeria.dao.IPizzaDao;
 
 public class ListerClientOptionMenu extends OptionMenu {
 

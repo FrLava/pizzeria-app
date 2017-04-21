@@ -1,6 +1,6 @@
 package optionMenu;
 
-import fr.pizzeria.console.ihm.IPizzaDao;
+import fr.pizzeria.dao.IPizzaDao;
 
 //Cette Super classe permet de concevoir des options pour un menu
 public abstract class OptionMenu {

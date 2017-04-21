@@ -2,11 +2,11 @@ package fr.pizzeria.dao;
 
 import java.util.List;
 
-import fr.pizzeria.exception.CreditException;
-import fr.pizzeria.exception.DebitException;
-import fr.pizzeria.exception.DeletePizzaException;
-import fr.pizzeria.exception.SavePizzaException;
-import fr.pizzeria.exception.UpdatePizzaException;
+import fr.pizzeria.dao.exception.CreditException;
+import fr.pizzeria.dao.exception.DebitException;
+import fr.pizzeria.dao.exception.DeletePizzaException;
+import fr.pizzeria.dao.exception.SavePizzaException;
+import fr.pizzeria.dao.exception.UpdatePizzaException;
 import fr.pizzeria.model.Client;
 import fr.pizzeria.model.Pizza;
 

@@ -7,9 +7,9 @@
     <artifactId>pizzeria-app</artifactId>
     <version>1.0.0</version>
   </parent>
-  <groupId>dta</groupId>
+
   <artifactId>pizzeria-dao-fichier</artifactId>
-  <version>1.0.0</version>
+
   <name>pizzeria-dao-fichier</name>
   <url>http://maven.apache.org</url>
   <properties>
@@ -19,8 +19,20 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.1</version>
+		<version>4.12</version>
       <scope>test</scope>
+    </dependency>
+    <dependency>
+    	<groupId>dta</groupId>
+    	<artifactId>pizzeria-dao-api</artifactId>
+    	<version>1.0.0</version>
+
+    </dependency>
+    <dependency>
+    	<groupId>dta</groupId>
+    	<artifactId>pizzeria-domain</artifactId>
+    	<version>1.0.0</version>
+
     </dependency>
   </dependencies>
 </project>

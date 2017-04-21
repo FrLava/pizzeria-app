@@ -2,8 +2,8 @@ package optionMenu;
 
 import java.util.Scanner;
 
-import fr.pizzeria.console.ihm.IPizzaDao;
-import fr.pizzeria.exception.DeletePizzaException;
+import fr.pizzeria.dao.IPizzaDao;
+import fr.pizzeria.dao.exception.DeletePizzaException;
 
 //Cette classe permet de génerer une option permettant de supprimer une pizza
 public class SupprimerPizzaOptionMenu extends OptionMenu {

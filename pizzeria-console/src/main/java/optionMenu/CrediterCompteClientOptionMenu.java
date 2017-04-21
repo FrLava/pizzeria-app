@@ -2,8 +2,8 @@ package optionMenu;
 
 import java.util.Scanner;
 
-import fr.pizzeria.console.ihm.IPizzaDao;
-import fr.pizzeria.exception.CreditException;
+import fr.pizzeria.dao.IPizzaDao;
+import fr.pizzeria.dao.exception.CreditException;
 
 public class CrediterCompteClientOptionMenu extends OptionMenu {
 
