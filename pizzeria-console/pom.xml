@@ -58,9 +58,10 @@
 			<groupId>com.github.lalyos</groupId>
 			<artifactId>jfiglet</artifactId>
 		</dependency>
-	</dependencies>
-
+		
+</dependencies>
 	<profiles>
+	
 		<profile>
 			<id>dev</id>
 			<activation>
@@ -77,6 +78,7 @@
 				</dependency>
 			</dependencies>
 		</profile>
+		
 		<profile>
 			<id>prod</id>
 			<properties>
@@ -89,6 +91,22 @@
 					<scope>runtime</scope>
 				</dependency>
 			</dependencies>
+		</profile>
+		
+		<profile>
+			<id>db</id>
+			<properties>
+				<dao>fr.pizzeria.dao.jdbc.DaoJdbcFactory</dao>
+			</properties>
+			<dependencies>
+				<dependency>
+					<groupId>dta</groupId>
+					<artifactId>pizzeria-dao-jdbc</artifactId>
+					 <version>1.0.0</version>
+					<scope>runtime</scope>
+				</dependency>
+			</dependencies>
+			
 		</profile>
 	</profiles>
 

@@ -5,8 +5,6 @@ import java.util.Scanner;
 
 import fr.pizzeria.dao.IPizzaDao;
 import fr.pizzeria.dao.DaoFactory;
-//import fr.pizzeria.dao.fichier.DaoFichierFactory;
-//import fr.pizzeria.dao.memoire.DaoMemoryFactory;
 
 import com.github.lalyos.jfiglet.FigletFont;
 
