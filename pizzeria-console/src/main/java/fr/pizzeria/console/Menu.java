@@ -7,6 +7,7 @@ import fr.pizzeria.dao.IPizzaDao;
 import optionMenu.AjouterPizzaOptionMenu;
 import optionMenu.CrediterCompteClientOptionMenu;
 import optionMenu.DebiterCompteClientOptionMenu;
+import optionMenu.ImporterDonneesOptionMenu;
 import optionMenu.ListerClientOptionMenu;
 import optionMenu.ListerPizzaOptionMenu;
 import optionMenu.ModifierPizzaOptionMenu;
@@ -25,6 +26,7 @@ public class Menu {
 	private static final int AFFICHER_CLIENTS=5;
 	private static final int CREDITER_CLIENT=6;
 	private static final int DEBITER_CLIENT=7;
+	private static final int IMPORTER_DONNEES=10;
 	
 	//OptionMenu[] optionMenu=new OptionMenu[5];
 	Map<Integer,OptionMenu> optionMenu=new TreeMap<>();
@@ -41,7 +43,8 @@ public class Menu {
 		optionMenu.put(SUPPRIMER_PIZZA,new SupprimerPizzaOptionMenu(pizzaDaoMenu));
 		optionMenu.put(AFFICHER_CLIENTS, new ListerClientOptionMenu(pizzaDaoMenu));
 		optionMenu.put(CREDITER_CLIENT, new CrediterCompteClientOptionMenu(pizzaDaoMenu));
-		optionMenu.put(DEBITER_CLIENT, new DebiterCompteClientOptionMenu(pizzaDaoMenu)); 
+		optionMenu.put(DEBITER_CLIENT, new DebiterCompteClientOptionMenu(pizzaDaoMenu));
+		optionMenu.put(IMPORTER_DONNEES, new ImporterDonneesOptionMenu(pizzaDaoMenu));
 	}
 	
 	public void afficherMenu()
@@ -54,6 +57,7 @@ public class Menu {
 		System.out.println(optionMenu.get(AFFICHER_CLIENTS).getLibelle());
 		System.out.println(optionMenu.get(CREDITER_CLIENT).getLibelle());
 		System.out.println(optionMenu.get(DEBITER_CLIENT).getLibelle());
+		System.out.println(optionMenu.get(IMPORTER_DONNEES).getLibelle());
 		System.out.println("99 Quitter l'application");
 		
 	} 

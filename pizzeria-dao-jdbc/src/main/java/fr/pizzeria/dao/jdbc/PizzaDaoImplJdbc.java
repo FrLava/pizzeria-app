@@ -1,24 +1,35 @@
 package fr.pizzeria.dao.jdbc;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import fr.pizzeria.dao.IPizzaDao;
 import fr.pizzeria.dao.exception.CreditException;
 import fr.pizzeria.dao.exception.DebitException;
 import fr.pizzeria.dao.exception.DeletePizzaException;
 import fr.pizzeria.dao.exception.SavePizzaException;
+import fr.pizzeria.dao.exception.StockageException;
 import fr.pizzeria.dao.exception.UpdatePizzaException;
+import fr.pizzeria.dao.fichier.DaoFichierFactory;
+import fr.pizzeria.dao.fichier.PizzaDaoImplFichier;
 import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Client;
 import fr.pizzeria.model.Pizza;
-import fr.pizzeria.model.CategoriePizza;;
+import fr.pizzeria.model.CategoriePizza;
 
 public class PizzaDaoImplJdbc implements IPizzaDao{
 
@@ -238,4 +249,48 @@ public class PizzaDaoImplJdbc implements IPizzaDao{
 		
 	}
 
+	public boolean importFichierEnBase(){
+	
+		List<Pizza> listPizza=new ArrayList<>();
+		PizzaDaoImplFichier dao=new PizzaDaoImplFichier();
+		
+		listPizza=dao.findAllPizzas();
+		
+		this.connectDB();
+		
+		PreparedStatement insertPizza=null;
+		
+		try {
+			insertPizza=myConnection.prepareStatement("INSERT INTO `pizza`(`Code`, `Name`, `Prix`, `Categorie`) VALUES (?,?,?,?);");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		int i;
+		
+		try{
+			for(i=1;i<listPizza.size();i++){
+				insertPizza.setString(1, listPizza.get(i-1).getCode());
+				insertPizza.setString(2, listPizza.get(i-1).getNom());
+				insertPizza.setDouble(3, listPizza.get(i-1).getPrix());
+				insertPizza.setString(4, listPizza.get(i-1).getCategorie());
+				insertPizza.execute();
+				
+				if(i%3==0){
+					myConnection.commit();
+				}
+				
+			}
+			
+		}catch(SQLException sql){
+			sql.printStackTrace();
+			try{myConnection.rollback();}catch(SQLException sql2){sql2.printStackTrace();}
+			
+		}
+				
+		
+		return false;
+		
+	}
 }

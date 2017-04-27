@@ -143,4 +143,11 @@ public class PizzaDaoImplFichier implements IPizzaDao {
 
 	}
 
+
+	@Override
+	public boolean importFichierEnBase() {
+		System.out.println("Veuillez paramétérer l'application en database");
+		return false;
+	}
+
 }

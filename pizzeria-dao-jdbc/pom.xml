@@ -28,6 +28,10 @@
     	<groupId>${project.groupId}</groupId>
     	<artifactId>pizzeria-domain</artifactId>
     </dependency>
-    
+
+    <dependency>
+    	<groupId>${project.groupId}</groupId>
+    	<artifactId>pizzeria-dao-fichier</artifactId>
+    </dependency>
   </dependencies>
 </project>

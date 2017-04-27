@@ -22,6 +22,8 @@ public interface IPizzaDao {
 
 	boolean deletePizza(String codePizza)throws DeletePizzaException;
 	
+	boolean importFichierEnBase();
+	
 	void crediterCompteClient(int id,double montant)throws CreditException;
 	
 	void debiterCompteClient(int id,double montant)throws DebitException;
