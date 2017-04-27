@@ -2,6 +2,9 @@ package fr.pizzeria.console;
 
 import java.util.ResourceBundle;
 import java.util.Scanner;
+import java.util.logging.Level;
+
+import javax.persistence.Persistence;
 
 import fr.pizzeria.dao.IPizzaDao;
 import fr.pizzeria.dao.DaoFactory;
@@ -15,6 +18,10 @@ public class PizzeriaAdminConsoleApp {
 		// TODO Auto-generated method stub
 		
 		//DaoFactory factory=new DaoFichierFactory();
+		
+		java.util.logging.Logger.getLogger("org.hibernate").setLevel(Level.SEVERE);
+		
+		Persistence.createEntityManagerFactory("pizzeria-unit");
 		
 		ResourceBundle bundle=ResourceBundle.getBundle("application");
 		String valueDao=bundle.getString("pizzeriaDao.val");

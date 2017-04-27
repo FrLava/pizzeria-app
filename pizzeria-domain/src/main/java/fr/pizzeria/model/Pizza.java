@@ -1,17 +1,33 @@
 package fr.pizzeria.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="pizza")
 public class Pizza {
 	
 	//############### Attributs ###############
 	
 	//private int idPizza;
-	@ToString
+	@Column(name="Code")
 	private String codePizza;
-	@ToString
+	@Column(name="Name")
 	private String nomPizza;
-	@ToString
+	@Column(name="Prix")
 	private double prixPizza;
+	@Enumerated(EnumType.STRING)
+	@Column(name="Categorie")
 	private CategoriePizza catPizza;
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int ID;
 	
 	//############### Méthodes ###############
 	
@@ -55,7 +71,7 @@ public class Pizza {
 				+this.getCategorie();
 	}
 	
-	
+
 	//Accesseurs
 	public String getCode()
 	{
@@ -77,10 +93,10 @@ public class Pizza {
 		return catPizza.name();
 	}
 	
-	/*public int getId()
+	public int getId()
 	{
-		return idPizza;
-	}*/
+		return ID;
+	}
 	
 	//Mutateurs
 	public void setCode(String code)
@@ -98,8 +114,8 @@ public class Pizza {
 		prixPizza=prix;
 	}
 	
-	/*public void setId(int id)
+	public void setId(int id)
 	{
-		idPizza=id;
-	}*/
+		ID=id;
+	}
 }

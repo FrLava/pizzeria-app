@@ -59,14 +59,18 @@
 			<artifactId>jfiglet</artifactId>
 		</dependency>
 		
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-entitymanager</artifactId>
+		    <version>5.1.0.Final</version>
+		</dependency>
+		
+		
 </dependencies>
 	<profiles>
 	
 		<profile>
 			<id>dev</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
 			<properties>
 				<dao>fr.pizzeria.dao.memoire.DaoMemoryFactory</dao>
 			</properties>
@@ -108,6 +112,24 @@
 			</dependencies>
 			
 		</profile>
+		
+		<profile>
+			<id>jpa</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<dao>fr.pizzeria.dao.jpa.DaoJpaFactory</dao>
+			</properties>
+			<dependencies>
+				<dependency>
+					<groupId>dta</groupId>
+					<artifactId>pizzeria-dao-jpa</artifactId>
+					<scope>runtime</scope>
+				</dependency>
+			</dependencies>
+		</profile>
+		
 	</profiles>
 
 </project>
