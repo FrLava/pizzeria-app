@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 import fr.pizzeria.dao.IPizzaDao;
@@ -16,6 +17,7 @@ import fr.pizzeria.dao.exception.DeletePizzaException;
 import fr.pizzeria.dao.exception.SavePizzaException;
 import fr.pizzeria.dao.exception.UpdatePizzaException;
 import fr.pizzeria.model.Client;
+import fr.pizzeria.model.Commande;
 import fr.pizzeria.model.Pizza;
 
 public class PizzaDaoImplJpa implements IPizzaDao {
@@ -35,8 +37,11 @@ public class PizzaDaoImplJpa implements IPizzaDao {
 
 	@Override
 	public List<Client> findAllClient() {
-		// TODO Auto-generated method stub
-		return null;
+		EntityManager em=emf.createEntityManager();
+		
+		TypedQuery<Client> query = em.createQuery("select c from Client c", Client.class);
+	
+		return query.getResultList();
 	}
 
 	@Override
@@ -50,26 +55,52 @@ public class PizzaDaoImplJpa implements IPizzaDao {
 			
 		et.commit();
 		
-		//em.close();
+		em.close();
 		
 		return false;
 	}
 
 	@Override
 	public boolean updatePizza(String codePizza, Pizza pizza) throws UpdatePizzaException {
-		// TODO Auto-generated method stub
+		EntityManager em=emf.createEntityManager();
+		EntityTransaction et = em.getTransaction();
+		
+		TypedQuery<Pizza> pQuery=em.createQuery("select p from Pizza p where p.codePizza=:Code",Pizza.class);
+		pQuery.setParameter("Code", codePizza);
+		Pizza p=pQuery.getResultList().get(0);
+		
+		et.begin();
+		
+		if(p!=null){
+			p.setCode(pizza.getCode());
+			p.setNom(pizza.getNom());
+			p.setPrix(pizza.getPrix());
+		}
+		
+		et.commit();
+		em.close();
+		
 		return false;
 	}
 
 	@Override
 	public boolean deletePizza(String codePizza) throws DeletePizzaException {
 		EntityManager em=emf.createEntityManager();
+		EntityTransaction et = em.getTransaction();
 		
-		Pizza p=em.find(Pizza.class, codePizza);
+		TypedQuery<Pizza> pQuery=em.createQuery("select p from Pizza p where p.codePizza=:Code",Pizza.class);
+		pQuery.setParameter("Code", codePizza);
+        
+		Pizza p=pQuery.getResultList().get(0);
 		
+        et.begin();
+        
 		if(p!=null){
 			em.remove(p);
 		}
+		
+		et.commit();
+        em.close();
 		
 		return false;
 	}

@@ -1,12 +1,38 @@
 package fr.pizzeria.model;
 
+import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="client")
 public class Client {
 	
 	//######################## Attribut ########################
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
+	
+	@Column(name="Nom")
 	private String nom; 
+	
+	@Column(name="Prenom")
 	private String prenom;
-	private double solde;
+	
+	@Column(name="Email")
+	private String email;
+	
+	@Column(name="MDP")
+	private String mdp;
+	
+	@OneToMany(mappedBy="mappedClient")
+	private Set<Commande> setCommandes;
 	
 	//######################## Constructeur par defaut ########################
 	public Client()
@@ -14,34 +40,43 @@ public class Client {
 		this.id=0;
 		this.nom="Doe";
 		this.prenom="Jhon";
-		this.solde=0;
 	}
 	
 	//######################## Constructeur ########################
-	public Client(int id, String nom, String prenom, double solde)
+	public Client(int id, String nom, String prenom,String email,String mdp)
 	{
 		this.id=id;
 		this.nom=nom;
 		this.prenom=prenom;
-		this.solde=solde;
+		this.email=email;
+		this.mdp=mdp;
 	}
 	
-	public void crediterCompte(double montant)
-	{
-		this.solde+=montant;
-	}
+
 	
-	public void debiterCompte(double montant)
-	{
-		this.solde-=montant;
-	}
-	
+
+
+
 	public String toString()
 	{
-		String info=this.nom+" "+this.prenom+" ("+this.solde+"€) ";
+		String info=this.nom+" "+this.prenom;
 		return info;
 	}
 
+	//######################## Getters ########################
+	
+	public Set<Commande> getSetCommandes() {
+		return setCommandes;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public String getMdp() {
+		return mdp;
+	}
+	
 	public int getId() {
 		return id;
 	}
@@ -54,10 +89,8 @@ public class Client {
 		return prenom;
 	}
 
-	public double getSolde() {
-		return solde;
-	}
-
+	//######################## Setters ########################
+	
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -69,9 +102,18 @@ public class Client {
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
+	
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-	public void setSolde(double solde) {
-		this.solde = solde;
+	public void setMdp(String mdp) {
+		this.mdp = mdp;
+	}
+
+	
+	public void setSetCommandes(Set<Commande> setCommandes) {
+		this.setCommandes = setCommandes;
 	}
 
 }
